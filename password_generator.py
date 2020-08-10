@@ -9,22 +9,17 @@ print('Enter some numbers that you have in mind (With spaces): ')
 numbers =list(map(int,input().strip().split()))
 while True:
     adjective = random.choice(Adjectives)
-    
     noun= random.choice(nouns)
-    
     numb1= random.choice(numbers)
-    
     numb2=random.randrange(0,100)
-    
     special_char = random.choice(string.punctuation)
-
-
-    password = adjective+noun +str(numb1)+special_char+str(numb2)
-
+    l = [adjective, noun, str(numb1), special_char, str(numb2)]
+    random.shuffle(l)
+    password=''
+    for i in l:
+        password+=i
     print('Password generated is: %s'%password)
-    
-
-    response=input('would you like another password?(y/n)?')
+    response=input('would you like another password?(Y/n)?')
     if(response is 'n'):
         break
     if response is not 'y':
